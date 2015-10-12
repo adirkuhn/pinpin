@@ -1,9 +1,10 @@
-%h1= @pin.title
-%p= @pin.description
-%p
-  Posted by
-  = @pin.user.email
+.col-md-6.col-md-offset-3
+  %h1= @pin.title
+  %p= @pin.description
+  %p
+    Posted by
+    = @pin.user.email
 
-%p= link_to 'Edit', edit_pin_path
-%p= link_to 'Delete', @pin, method: :delete, data: { :confirm => "Are you sure?" }
-%p= link_to 'Back', pins_path
+  %p= link_to 'Edit', edit_pin_path
+  %p= link_to 'Delete', @pin, method: :delete, data: { :confirm => "Are you sure?" }
+  %p= link_to 'Back', pins_path
