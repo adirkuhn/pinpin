@@ -1,1 +1,9 @@
-%h1 hey world =>.<=
+%h1 Pins
+
+%p
+  = link_to 'new pin', new_pin_path
+
+- @pins.each do |pin|
+  %div
+    %h2= link_to pin.title, pin
+    %p= pin.description
