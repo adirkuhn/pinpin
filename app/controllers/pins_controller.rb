@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
 
-  before_action :find_pin, only: [:show, :edit]
+  before_action :find_pin, only: [:show, :edit, :update]
 
   # GET /pins
   # GET /pins.json
@@ -31,6 +31,16 @@ class PinsController < ApplicationController
 
   # GET /pins/1/edit
   def edit
+  end
+
+  # PATCH/PUT /pins/1
+  # PATCH/PUT /pins/1.json
+  def update
+    if @pin.update(pin_params)
+      redirect_to @pin, notice: 'Pin was successfuly updated.'
+    else
+      render :edit, alert: @pin.errors
+    end
   end
 
   private
