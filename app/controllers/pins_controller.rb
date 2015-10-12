@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
 
-  before_action :find_pin, only: [:show, :edit, :update]
+  before_action :find_pin, only: [:show, :edit, :update, :destroy]
 
   # GET /pins
   # GET /pins.json
@@ -42,6 +42,14 @@ class PinsController < ApplicationController
     else
       render :edit, alert: @pin.errors
     end
+  end
+
+  # DELETE /pins/1
+  # DELETE /pins/1.json
+  def destroy
+    @pin.destroy
+
+    redirect_to pins_path
   end
 
   private
