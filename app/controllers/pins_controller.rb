@@ -1,5 +1,7 @@
 class PinsController < ApplicationController
-  
+
+  before_action :find_pin, only: [:show, :edit]
+
   # GET /pins
   # GET /pins.json
   def index
@@ -8,7 +10,6 @@ class PinsController < ApplicationController
   # GET /pins/1
   # GET /pins/1.json
   def show
-    @pin = Pin.find(params[:id])
   end
 
   # GET /pins/new
@@ -28,7 +29,15 @@ class PinsController < ApplicationController
     end
   end
 
+  # GET /pins/1/edit
+  def edit
+  end
+
   private
+
+    def find_pin
+      @pin = Pin.find(params[:id])
+    end
 
     def pin_params
       params.require(:pin).permit(:title, :description)
