@@ -20,9 +20,11 @@
           %li= link_to "Sign In", new_user_session_path
 
   .container
-    %p.notice
-      = notice
-    %p.alert
-      = alert
+    - if notice
+      %p.alert.alert-info
+        = notice
+    - if alert
+      %p.alert.alert-danger
+        = alert
 
     = yield
