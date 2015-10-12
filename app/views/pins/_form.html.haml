@@ -1,5 +1,12 @@
 = simple_form_for @pin, html: { multipart: true } do |form|
 
+  - if @pin.image?
+    .form-group
+      = image_tag @pin.image.url(:medium)
+
+  .form-group
+    = form.input :image, input_html: { class: 'form-control' }
+
   .form-group
     = form.input :title, input_html: { class: 'form-control' }
 
